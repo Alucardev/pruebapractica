@@ -1,0 +1,40 @@
+﻿@model ContactCrud.Models.Contact
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" style="margin-top:30px">
+    <div class="col-sm-12">
+
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h4>Edit contact</h4>
+            </div>
+            <div class="panel-body">
+                <form action="@Url.Action("Edit","Contact")" method="post">
+                    <input type="hidden" class="form-control" name="IdContact" value="@Html.DisplayTextFor(m => m.IdContact)" />
+                    <div class="form-group">
+                        <label>Names</label>
+                        <input type="text" class="form-control" name="Names" value="@Html.DisplayTextFor(m => m.Names)" />
+                    </div>
+                    <div class="form-group">
+                        <label>Lastnames</label>
+                        <input type="text" class="form-control" name="LastNames" value="@Html.DisplayTextFor(m => m.LastNames)" />
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" class="form-control" name="Phone" value="@Html.DisplayTextFor(m => m.Phone)" />
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" class="form-control" name="Email" value="@Html.DisplayTextFor(m => m.Email)" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a class="btn btn-warning" href="@Url.Action("Home","Contact")">Volver</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

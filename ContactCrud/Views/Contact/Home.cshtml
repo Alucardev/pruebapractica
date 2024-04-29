@@ -1,0 +1,57 @@
+﻿@model List<ContactCrud.Models.Contact>
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" style="margin-top:30px">
+    <div class="col-sm-12">
+
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h4>Contact List</h4>
+            </div>
+            <div class="panel-body">
+                <a class="btn btn-success" href="@Url.Action("Register","Contact")">New Contact</a>
+                <hr />
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Names</th>
+                                <th>Lastnames</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Actions</th>
+                                <th style="width:150px"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (ContactCrud.Models.Contact item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Names</td>
+                                    <td>@item.LastNames</td>
+                                    <td>@item.Phone</td>
+                                    <td>@item.Email</td>
+                                    <td>
+                                        <a class="btn btn-primary btn-sm" href="@Url.Action("Edit","Contact", new { idcontact = item.IdContact })">Edit</a>
+                                        <a class="btn btn-danger btn-sm" href="@Url.Action("Delete","Contact", new { idcontact = item.IdContact })">Delete</a>
+
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
